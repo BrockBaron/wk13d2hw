@@ -10,23 +10,27 @@ import java.util.List;
 @Table(name = "users")
 public class User {
 
-    @Column(name = "name")
-    private String name;
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
-    @JoinColumn(name = "folder_id", nullable = false)
-    @JsonIgnoreProperties({"users"})
-    private List<Folder> folder;
+    @Column(name = "name")
+    private String name;
+
+
+//    @OneToMany
+//    @JoinColumn(name = "folder_id", nullable = false)
+//    @JsonIgnoreProperties({"users"})
+//    private List<Folder> folder;
+
+    @JsonIgnoreProperties({"user"})
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Folder> folders;
 
     public User(String name) {
         this.name = name;
         this.id = id;
-        this.folder = new ArrayList<>();
+        this.folders = new ArrayList<>();
     }
 
     public User() {
