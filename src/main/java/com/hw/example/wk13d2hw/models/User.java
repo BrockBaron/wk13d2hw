@@ -36,6 +36,9 @@ public class User {
     public User() {
     }
 
+
+
+//    G&S
     public String getName() {
         return name;
     }
@@ -53,10 +56,10 @@ public class User {
     }
 
     public List<Folder> getFolder() {
-        return folder;
+        return folders;
     }
 
     public void setFolder(List<Folder> folder) {
-        this.folder = folder;
+        this.folders = folder;
     }
 }
