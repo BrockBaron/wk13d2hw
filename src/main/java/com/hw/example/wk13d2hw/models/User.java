@@ -14,8 +14,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "user_name")
+    private String userName;
 
 
 //    @OneToMany
@@ -27,9 +27,8 @@ public class User {
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Folder> folders;
 
-    public User(String name) {
-        this.name = name;
-        this.id = id;
+    public User(String userName) {
+        this.userName = userName;
         this.folders = new ArrayList<>();
     }
 
@@ -39,12 +38,12 @@ public class User {
 
 
 //    G&S
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public Long getId() {
@@ -55,11 +54,11 @@ public class User {
         this.id = id;
     }
 
-    public List<Folder> getFolder() {
+    public List<Folder> getFolders() {
         return folders;
     }
 
-    public void setFolder(List<Folder> folder) {
-        this.folders = folder;
+    public void setFolders(List<Folder> folders) {
+        this.folders = folders;
     }
 }
